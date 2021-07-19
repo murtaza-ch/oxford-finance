@@ -1,10 +1,10 @@
 import React from "react";
-import { Box, Text } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import routes from "./routes";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 
-function App() {
+function App() {     
   return (
     <Box fontFamily="Poppins">
       <Switch>
