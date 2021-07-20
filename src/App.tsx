@@ -2,9 +2,9 @@ import React from "react";
 import { Box } from "@chakra-ui/react";
 import routes from "./routes";
 import "./App.css";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 
-function App() {     
+function App() {
   return (
     <Box fontFamily="Poppins">
       <Switch>
@@ -15,6 +15,7 @@ function App() {
             path={route.path}
           />
         ))}
+        <Redirect to="/screen/0" />
       </Switch>
     </Box>
   );

@@ -1,10 +1,16 @@
 import React from "react";
 import { Box, Text, VStack } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import { CButton } from "../..";
 
-export default function FourthScreen() {
+interface FifthScreenProps {
+  screenId: string;
+}
+
+export default function FifthScreen(props: FifthScreenProps) {
+  const { screenId } = props;
   return (
-    <Box>
+    <Box p="20px">
       <Text
         mb="20px"
         fontSize="30px"
@@ -30,7 +36,13 @@ export default function FourthScreen() {
       ></iframe>
 
       <VStack mt="20px">
-        <CButton title="Next Step" borderRadius="40px" px="30px" />
+        <CButton
+          title="Next Step"
+          borderRadius="40px"
+          px="30px"
+          as={Link}
+          to={`/screen/${+screenId + 1}`}
+        />
       </VStack>
     </Box>
   );

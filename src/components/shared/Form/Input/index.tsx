@@ -8,18 +8,31 @@ import {
 
 interface InputProps extends CInputProps {
   label?: string;
+  name?: string;
+  labelColor?: string;
+  onSetAnswerValue?: (name: string, value: number | string) => void;
 }
 
 export default function Input(props: InputProps) {
-  const { label, ...otherProps } = props;
+  const {
+    label,
+    labelColor = "brand.primary.main",
+    onSetAnswerValue,
+    name,
+    ...otherProps
+  } = props;
   return (
     <FormControl>
-      <FormLabel color="brand.primary.main">{label}</FormLabel>
+      <FormLabel color={labelColor}>{label}</FormLabel>
       <CInput
         size="sm"
         variant="flushed"
-        {...otherProps}
         focusBorderColor="brand.primary.main"
+        name={name}
+        onChange={(e) =>
+          onSetAnswerValue && onSetAnswerValue(e.target.name, e.target.value)
+        }
+        {...otherProps}
       />
     </FormControl>
   );

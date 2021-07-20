@@ -1,10 +1,20 @@
 import React from "react";
 import { Box, HStack, Text, VStack } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import { CButton, CSlider } from "../..";
 
-export default function ScreenOne() {
+interface ScreenOneProps {
+  screenId: string;
+  onSetAnswerValue: (name: string, value: number | string) => void;
+  answers: {
+    loanAmount: number;
+  };
+}
+
+export default function ScreenOne(props: ScreenOneProps) {
+  const { screenId, onSetAnswerValue, answers } = props;
   return (
-    <Box>
+    <Box p="20px">
       <Text
         mb="20px"
         fontSize="30px"
@@ -24,7 +34,7 @@ export default function ScreenOne() {
       </Text>
 
       <HStack justifyContent="space-between" mt="18px">
-        <Text fontSize="20px">Loan Amount:</Text>
+        <Text fontSize="18px">Loan Amount:</Text>
         <Text
           bgColor="brand.primary.main"
           color="#fff"
@@ -33,16 +43,27 @@ export default function ScreenOne() {
           px="15px"
           borderRadius="20px"
         >
-          $37,300
+          ${answers.loanAmount}
         </Text>
       </HStack>
-      <CSlider mt="20px" />
+      <CSlider
+        name="loanAmount"
+        mt="20px"
+        onSetAnswerValue={onSetAnswerValue}
+        min={0}
+        max={250000}
+      />
 
       <VStack mt="20px">
         <Text fontSize="20px" fontWeight={500}>
           Term required: (In Month)
         </Text>
-        <CSlider />
+        <CSlider
+          name="termRequired"
+          min={12}
+          max={60}
+          onSetAnswerValue={onSetAnswerValue}
+        />
         <HStack w="full" justifyContent="space-between">
           {[12, 18, 24, 30, 36, 42, 48, 54, 60].map((month) => (
             <>
@@ -104,7 +125,13 @@ export default function ScreenOne() {
       </Box>
 
       <VStack mt="20px">
-        <CButton title="Next Step" borderRadius="40px" px="30px" />
+        <CButton
+          title="Next Step"
+          borderRadius="40px"
+          px="30px"
+          as={Link}
+          to={`/screen/${+screenId + 1}`}
+        />
       </VStack>
     </Box>
   );

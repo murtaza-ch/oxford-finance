@@ -8,18 +8,36 @@ import {
 
 interface SelectProps extends CSelectProps {
   label?: string;
+  labelColor?: string;
   options: { value: string; label: string }[];
+  name?: string;
+  onSetAnswerValue?: (name: string, value: number | string) => void;
 }
 
 export default function Input(props: SelectProps) {
-  const { label, options, ...otherProps } = props;
+  const {
+    label,
+    options,
+    labelColor = "brand.primary.main",
+    name,
+    onSetAnswerValue,
+    ...otherProps
+  } = props;
   return (
     <FormControl>
-      <FormLabel>{label}</FormLabel>
-      <CSelect {...otherProps} focusBorderColor="brand.primary.main" />
-      {options.map((el) => (
-        <option value={el.value}>{el.label}</option>
-      ))}
+      <FormLabel color={labelColor}>{label}</FormLabel>
+      <CSelect
+        name={name}
+        focusBorderColor="brand.primary.main"
+        onChange={(e) =>
+          onSetAnswerValue && onSetAnswerValue(e.target.name, e.target.value)
+        }
+        {...otherProps}
+      >
+        {options.map((el) => (
+          <option value={el.value}>{el.label}</option>
+        ))}
+      </CSelect>
     </FormControl>
   );
 }

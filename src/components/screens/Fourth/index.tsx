@@ -1,10 +1,17 @@
 import React from "react";
 import { Box, Text, VStack } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import { CButton, CInput } from "../..";
 
-export default function FourthScreen() {
+interface FourthScreenProps {
+  screenId: string;
+  onSetAnswerValue?: (name: string, value: number | string) => void;
+}
+
+export default function FourthScreen(props: FourthScreenProps) {
+  const { screenId, onSetAnswerValue } = props;
   return (
-    <Box>
+    <Box p="20px">
       <Text
         mb="20px"
         fontSize="30px"
@@ -26,19 +33,34 @@ export default function FourthScreen() {
         <CInput
           label="What are your monthly experience?"
           borderColor="brand.primary.main"
+          name="what are your monthly experience?"
+          onSetAnswerValue={onSetAnswerValue}
+          placeholder="incl. rent, power, internet etc"
         />
         <CInput
           label="What is the total value of your assets?"
           borderColor="brand.primary.main"
+          name="what is the total value of your assets?"
+          onSetAnswerValue={onSetAnswerValue}
+          placeholder="incl. savings, shares, vehicles etc"
         />
         <CInput
-          label="what is the total value of your liabilities?"
+          label="What is the total value of your liabilities?"
           borderColor="brand.primary.main"
+          name="what is the total value of your liabilities?"
+          onSetAnswerValue={onSetAnswerValue}
+          placeholder="incl. loans, store cards, debt etc"
         />
       </VStack>
 
       <VStack mt="20px">
-        <CButton title="Next Step" borderRadius="40px" px="30px" />
+        <CButton
+          title="Next Step"
+          borderRadius="40px"
+          px="30px"
+          as={Link}
+          to={`/screen/${+screenId + 1}`}
+        />
       </VStack>
     </Box>
   );

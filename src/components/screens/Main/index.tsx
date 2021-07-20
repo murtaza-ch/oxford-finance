@@ -1,10 +1,16 @@
 import React from "react";
 import { Box, Text, VStack } from "@chakra-ui/react";
 import { CButton } from "../..";
+import { Link } from "react-router-dom";
 
-export default function MainScreen() {
+interface MainScreenProps {
+  screenId: string;
+}
+
+export default function MainScreen(props: MainScreenProps) {
+  const { screenId } = props;
   return (
-    <Box>
+    <Box p="20px">
       <Text fontSize="30px" color="brand.primary.main" textAlign="center">
         Logo
       </Text>
@@ -62,8 +68,16 @@ export default function MainScreen() {
         </Text>
       </VStack>
       <VStack mt="20px">
-        <CButton title="Find Out More" />
+        <CButton
+          title="Find Out More"
+          as={Link}
+          to={`/screen/${+screenId + 1}`}
+        />
       </VStack>
+      <Text textAlign="center" fontSize="14px" mt="10px">
+        *T&Cs apply. Rates from 5.95%-14.95% pa based on lending and credit
+        criteria. Admin free of $240 ($180 for AA members)
+      </Text>
     </Box>
   );
 }

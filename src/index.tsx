@@ -6,12 +6,17 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { oxfordFinanceTheme } from "./theme";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Provider } from "react-redux";
+import store from "./slices";
 
 ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider theme={oxfordFinanceTheme}>
       <Router>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </Router>
     </ChakraProvider>
   </React.StrictMode>,
