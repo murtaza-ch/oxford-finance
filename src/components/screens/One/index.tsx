@@ -2,12 +2,14 @@ import React from "react";
 import { Box, HStack, Text, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { CButton, CSlider, CRadio } from "../..";
+import Logo from "../../Logo";
 
 interface ScreenOneProps {
   screenId: string;
   onSetAnswerValue: (name: string, value: number | string) => void;
   answers: {
     loanAmount: number;
+    repaymentDuration: string;
   };
 }
 
@@ -15,14 +17,7 @@ export default function ScreenOne(props: ScreenOneProps) {
   const { screenId, onSetAnswerValue, answers } = props;
   return (
     <Box p="20px">
-      <Text
-        mb="20px"
-        fontSize="30px"
-        color="brand.primary.main"
-        textAlign="center"
-      >
-        Logo
-      </Text>
+      <Logo />
       <Text
         textTransform="uppercase"
         color="brand.primary.main"
@@ -79,6 +74,8 @@ export default function ScreenOne(props: ScreenOneProps) {
         <Text fontSize="18px">Repayment Frequency</Text>
         <CRadio
           direction="column"
+          name="repaymentDuration"
+          onSetAnswerValue={onSetAnswerValue}
           radioOptions={[
             { value: "weekly", label: "Weekly" },
             { value: "frequency", label: "Frequency" },
@@ -91,13 +88,15 @@ export default function ScreenOne(props: ScreenOneProps) {
         mt="20px"
         borderRadius="10px"
         bgColor="brand.primary.main"
-        w="80%"
+        w="100%"
         mx="auto"
         h="100px"
         textAlign="center"
         pt="6px"
       >
-        <Text color="#fff">Your minimum weekly repayment amount is</Text>
+        <Text color="#fff">
+          Your minimum {answers.repaymentDuration} repayment amount is
+        </Text>
         <Text color="#ffde54" fontSize="30px" fontWeight={500}>
           $287.29
         </Text>

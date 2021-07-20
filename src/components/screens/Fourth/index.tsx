@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Text, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { CButton, CInput } from "../..";
+import Logo from "../../Logo";
 
 interface FourthScreenProps {
   screenId: string;
@@ -12,14 +13,7 @@ export default function FourthScreen(props: FourthScreenProps) {
   const { screenId, onSetAnswerValue } = props;
   return (
     <Box p="20px">
-      <Text
-        mb="20px"
-        fontSize="30px"
-        color="brand.primary.main"
-        textAlign="center"
-      >
-        Logo
-      </Text>
+      <Logo />
       <Text
         color="brand.primary.main"
         textTransform="uppercase"

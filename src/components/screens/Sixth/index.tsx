@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Text, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { CButton, CInput, CRadio, CSelect } from "../..";
+import Logo from '../../Logo'
 
 interface FourthScreenProps {
   screenId: string;
@@ -16,14 +17,7 @@ export default function FourthScreen(props: FourthScreenProps) {
   const { screenId, onSetAnswerValue, answers } = props;
   return (
     <Box p="20px">
-      <Text
-        mb="20px"
-        fontSize="30px"
-        color="brand.primary.main"
-        textAlign="center"
-      >
-        Oxford Logo
-      </Text>
+     <Logo />
 
       <Text fontSize="20px" fontWeight={600}>
         Are you buying the car off a dealer? if yes who?

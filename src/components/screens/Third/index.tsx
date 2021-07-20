@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Text, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { CButton, CInput, CRadio } from "../..";
-
+import Logo from "../../Logo";
 interface ThirdScreenProps {
   screenId: string;
   onSetAnswerValue: (name: string, value: string | number) => void;
@@ -12,14 +12,7 @@ export default function ThirdScreen(props: ThirdScreenProps) {
   const { screenId, onSetAnswerValue } = props;
   return (
     <Box p="20px">
-      <Text
-        mb="20px"
-        fontSize="30px"
-        color="brand.primary.main"
-        textAlign="center"
-      >
-        Logo
-      </Text>
+      <Logo />
       <Text color="brand.primary.main" fontSize="25px" fontWeight={600}>
         A Bit More Personal Info
       </Text>

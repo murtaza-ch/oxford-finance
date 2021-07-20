@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Text, VStack } from "@chakra-ui/react";
 import { CButton } from "../..";
 import { Link } from "react-router-dom";
+import Logo from "../../Logo";
 
 interface MainScreenProps {
   screenId: string;
@@ -11,9 +12,7 @@ export default function MainScreen(props: MainScreenProps) {
   const { screenId } = props;
   return (
     <Box p="20px">
-      <Text fontSize="30px" color="brand.primary.main" textAlign="center">
-        Logo
-      </Text>
+      <Logo />
       <Text
         color="brand.primary.main"
         textAlign="center"

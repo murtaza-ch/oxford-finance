@@ -2,8 +2,9 @@ import React from "react";
 import { Box, Text, VStack, HStack, Icon } from "@chakra-ui/react";
 import { BiCheck } from "react-icons/bi";
 import { ImCross } from "react-icons/im";
-import { CButton, CCheckbox, CRadio } from "../../..";
+import { CButton, CRadio } from "../../..";
 import { Link } from "react-router-dom";
+import Logo from "../../../Logo";
 
 interface SmartCoverProps {
   onSetAnswerValue: (name: string, value: string | number) => void;
@@ -13,16 +14,11 @@ export default function SmartCover(props: SmartCoverProps) {
   const { onSetAnswerValue } = props;
   return (
     <Box p="20px">
-      <Box bgColor="#eefaff" w="100%" py="10px">
-        <Text
-          mb="20px"
-          fontSize="30px"
-          color="brand.primary.main"
-          textAlign="center"
-        >
-          Oxford Logo
-        </Text>
-      </Box>
+      <VStack>
+        <Box w="180px">
+          <Logo />
+        </Box>
+      </VStack>
 
       <Text
         textAlign="center"
