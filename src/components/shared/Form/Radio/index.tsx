@@ -33,13 +33,13 @@ export default function Radio(props: RadioProps) {
         <Stack direction={direction}>
           {radioOptions.map((el) => (
             <CRadio
-              {...otherProps}
               name={name}
               onChange={(e) =>
                 onSetAnswerValue &&
                 onSetAnswerValue(e.target.name, e.target.value)
               }
               value={el.value}
+              {...otherProps}
             >
               {el.label}
             </CRadio>

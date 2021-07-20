@@ -3,11 +3,14 @@ import { Box, Text, VStack } from "@chakra-ui/react";
 import { CButton } from "../..";
 import { Link } from "react-router-dom";
 
-interface EigthScreenProps {
+interface SuccessScreenProps {
   screenId: string;
+  answers: {
+    
+  }
 }
 
-export default function EigthScreen(props: EigthScreenProps) {
+export default function SuccessScreen(props: SuccessScreenProps) {
   const { screenId } = props;
   return (
     <VStack

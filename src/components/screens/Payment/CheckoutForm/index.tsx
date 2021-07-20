@@ -1,5 +1,6 @@
 import React from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { useHistory } from "react-router-dom";
 import { VStack, Text } from "@chakra-ui/react";
 import { CButton } from "../../..";
 import "./index.css";
@@ -10,6 +11,7 @@ interface CheckoutFormProps {
 
 const CheckoutForm = (props: CheckoutFormProps) => {
   const { price } = props;
+  const history = useHistory();
   const stripe = useStripe();
   const elements = useElements();
 
@@ -38,6 +40,7 @@ const CheckoutForm = (props: CheckoutFormProps) => {
       console.log("[error]", error);
     } else {
       console.log("[PaymentMethod]", paymentMethod);
+      history.push("/screen/success");
     }
   };
 

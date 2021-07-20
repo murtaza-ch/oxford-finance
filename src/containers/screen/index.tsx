@@ -11,7 +11,7 @@ import {
   FifthScreen,
   SixthScreen,
   // SeventhScreen,
-  EigthScreen,
+  SuccessScreen,
   NinthScreen,
   PaymentScreen,
 } from "../../components";
@@ -62,8 +62,8 @@ export default function Screen() {
       case "7": {
         return <NinthScreen {...screenProps} />;
       }
-      case "8": {
-        return <EigthScreen {...screenProps} />;
+      case "success": {
+        return <SuccessScreen {...screenProps} />;
       }
       case "payment": {
         return <PaymentScreen {...screenProps} />;

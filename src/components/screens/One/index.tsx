@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, HStack, Text, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { CButton, CSlider } from "../..";
+import { CButton, CSlider, CRadio } from "../..";
 
 interface ScreenOneProps {
   screenId: string;
@@ -77,35 +77,14 @@ export default function ScreenOne(props: ScreenOneProps) {
 
       <VStack mt="20px" align="start">
         <Text fontSize="18px">Repayment Frequency</Text>
-        <HStack>
-          <HStack>
-            <Box
-              h="10px"
-              w="10px"
-              borderRadius="50%"
-              bgColor="brand.primary.main"
-            ></Box>
-            <Text>Weekly</Text>
-          </HStack>
-          <HStack>
-            <Box
-              h="10px"
-              w="10px"
-              borderRadius="50%"
-              bgColor="brand.primary.main"
-            ></Box>
-            <Text>Frequency</Text>
-          </HStack>
-          <HStack>
-            <Box
-              h="10px"
-              w="10px"
-              borderRadius="50%"
-              bgColor="brand.primary.main"
-            ></Box>
-            <Text>Monthly</Text>
-          </HStack>
-        </HStack>
+        <CRadio
+          direction="column"
+          radioOptions={[
+            { value: "weekly", label: "Weekly" },
+            { value: "frequency", label: "Frequency" },
+            { value: "monthly", label: "Monthly" },
+          ]}
+        />
       </VStack>
 
       <Box

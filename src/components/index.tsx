@@ -7,7 +7,7 @@ export { default as FourthScreen } from "./screens/Fourth";
 export { default as FifthScreen } from "./screens/Fifth";
 export { default as SixthScreen } from "./screens/Sixth";
 export { default as SeventhScreen } from "./screens/Seventh";
-export { default as EigthScreen } from "./screens/Eigth";
+export { default as SuccessScreen } from "./screens/Success";
 export { default as NinthScreen } from "./screens/Ninth";
 export { default as PaymentScreen } from "./screens/Payment";
 
